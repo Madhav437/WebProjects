@@ -1,0 +1,31 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"  
+    xmlns:beans="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+    http://www.springframework.org/schema/beans/spring-beans.xsd  
+    http://www.springframework.org/schema/security  
+    http://www.springframework.org/schema/security/spring-security.xsd"> 
+
+
+
+<http auto-config="true"> 
+        <intercept-url pattern="/salesmgr.htm" access="hasRole('ROLE_SALES')" />  
+        <intercept-url pattern="/servmgr.htm" access="hasRole('ROLE_SERVICE')" /> 
+         <csrf disabled="true"/>
+         <logout logout-success-url="/" 
+         logout-url="/logout" />
+</http>
+    
+    
+   
+   
+<authentication-manager>
+    <authentication-provider>
+       <user-service>  
+        <user name="sales" password="{noop}1234" authorities="ROLE_SALES" />  
+        <user name="service" password="{noop}1234" authorities="ROLE_SERVICE" /> 
+        </user-service>
+    </authentication-provider>
+</authentication-manager>
+
+</beans:beans> 

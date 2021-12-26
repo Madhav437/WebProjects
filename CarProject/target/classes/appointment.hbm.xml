@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+ <!--write code here-->
+ <class dynamic-insert="false" dynamic-update="false" mutable = "true" name="edu.neu.hwmvc.model.Serviceapt" optimistic-lock="version"
+ polymorphism="implicit" select-before-update="false" table="Serviceapt">
+ 
+   <id name="serviceId" type="integer">
+   <column name="serviceId"/>
+   <generator class="native"/>
+   </id>
+   
+   <property name="carName" type = "java.lang.String">
+   <column name = "carName"/>
+    </property>
+    
+   
+   
+   <property name="appDate" type = "java.lang.String">
+   <column name = "appDate"/>
+   </property>
+   
+   <property name="appTime" type = "java.lang.String">
+   <column name = "appTime"/>
+    </property>
+    
+    <property name="regNumber" type = "java.lang.String">
+   <column name = "regNumber"/>
+    </property>
+    
+   
+    
+     <property name="makeYear" type = "java.lang.String">
+   <column name = "makeYear"/>
+    </property>
+    
+     <many-to-one name="customer" class="edu.neu.hwmvc.model.Customer"
+            fetch="select">
+            <column name="custId" not-null="true" />
+     </many-to-one>
+   
+   </class>
+  
+</hibernate-mapping>

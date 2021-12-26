@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+ <!--write code here-->
+ <class dynamic-insert="false" dynamic-update="false" mutable = "true" name="edu.neu.hwmvc.model.Orders" optimistic-lock="version"
+ polymorphism="implicit" select-before-update="false" table="Orders">
+ 
+ <id name="orderId" type="integer">
+   <column name="OrderId"/>
+   <generator class="native"/>
+   </id>
+   
+   <property name="carName" type = "java.lang.String">
+   <column name = "carName"/>
+    </property>
+   
+   <property name="color" type = "java.lang.String">
+   <column name = "color"/>
+   </property>
+   
+   <property name="motor" type = "java.lang.String">
+   <column name = "motor"/>
+   </property>
+   
+   <property name="modOption" type = "java.lang.String">
+   <column name = "modOption"/>
+   </property>
+   
+   <property name="wheels" type = "java.lang.String">
+   <column name = "wheels"/>
+   </property>
+   
+   <property name="interior" type = "java.lang.String">
+   <column name = "interior"/>
+   </property>
+   
+   <property name="autopilot" type = "java.lang.String">
+   <column name = "autopilot"/>
+   </property>
+   
+    <property name="paymentType" type = "java.lang.String">
+   <column name = "paymentType"/>
+   </property>
+   
+     <property name="price" type = "float">
+   <column name = "price"/>
+   </property>
+   
+    <many-to-one name="customer" class="edu.neu.hwmvc.model.Customer"
+            fetch="select">
+            <column name="custId" not-null="true" />
+     </many-to-one>
+ 
+   
+   </class>
+  
+</hibernate-mapping>
